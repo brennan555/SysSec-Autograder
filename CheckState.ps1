@@ -1,6 +1,6 @@
 Import-Module VMware.VimAutomation.Core
-$vSphereUser = "secdevlocal@vsphere.local"#Read-Host "vSphere Username"
-$vSpherePass = "tallclub25"#Read-Host "vSphere Password" -AsSecureString
+$vSphereUser = "XXX"#Read-Host "vSphere Username"
+$vSpherePass = "XXX"#Read-Host "vSphere Password" -AsSecureString
 Connect-VIServer cdr-vcenter.cse.buffalo.edu -User $vSphereUser -Password $vSpherePass
 
 Clear-Host
@@ -27,7 +27,7 @@ function CheckState {
         else {
             $number = "$_"
         }
-        Connect-VIServer -Server "cdr-vcenter.cse.buffalo.edu" -User "secdevlocal@vsphere.local" -Password "tallclub25" -Force
+        Connect-VIServer -Server "cdr-vcenter.cse.buffalo.edu" -User "XXX" -Password "XXX" -Force
         $VM = Get-Folder "SysSec" | Get-Folder "Team_$number" | Get-VM $using:SourceDevice
         if ($VM.PowerState -eq "PoweredOff") { ## makes sure VMs are powered on before running scripts. NOTE: there is a bug where VMware tools will stop running if VM's go into hibernation. Fix in windwows power settings.
             Start-VM -VM $VM
