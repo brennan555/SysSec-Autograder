@@ -1,0 +1,1 @@
+if ("10.42.2.98" -match $using:TestExpectedResult) {
